@@ -35,13 +35,13 @@
 //                                                                              //
 //////////////////////////////////////////////////////////////////////////////////
 
-#define SX126X_CS 14    // EBYTE module's NSS pin // FIXME: rename to SX126X_SS
-#define LORA_SCK 21     // EBYTE module's SCK pin
-#define LORA_MOSI 38    // EBYTE module's MOSI pin
-#define LORA_MISO 39    // EBYTE module's MISO pin
-#define SX126X_RESET 40 // EBYTE module's NRST pin
-#define SX126X_BUSY 41  // EBYTE module's BUSY pin
-#define SX126X_DIO1 42  // EBYTE module's DIO1 pin
+#define SX126X_CS 10    // EBYTE module's NSS pin // FIXME: rename to SX126X_SS
+#define LORA_SCK 12     // EBYTE module's SCK pin
+#define LORA_MOSI 11    // EBYTE module's MOSI pin
+#define LORA_MISO 13    // EBYTE module's MISO pin
+#define SX126X_RESET 4  // EBYTE module's NRST pin
+#define SX126X_BUSY 21  // EBYTE module's BUSY pin
+#define SX126X_DIO1 14  // EBYTE module's DIO1 pin
 // We don't define a pin for SX126X_DIO2 as Meshtastic doesn't use it as an interrupt output, so it is never connected to an MCU
 // pin! Also E22 module datasheets say not to connect it to an MCU pin.
 // We don't define a pin for SX126X_DIO3 as Meshtastic doesn't use it as an interrupt output, so it is never connected to an MCU
@@ -73,7 +73,7 @@
 // /*
 #define SX126X_DIO2_AS_RF_SWITCH
 #define SX126X_TXEN RADIOLIB_NC
-#define SX126X_RXEN 10
+#define SX126X_RXEN 5
 // */
 
 // Option 3: E22's TXEN pin connected to MCU pin, E22's RXEN pin connected to MCU pin (cheaper option hardware-wise, allows for
@@ -107,15 +107,15 @@
 // app/preferences
 #define EXT_NOTIFY_OUT 2 // The GPIO pin that acts as the external notification output (here we connect an LED to it)
 // Buzzer
-#define PIN_BUZZER 11
+//#define PIN_BUZZER 11
 // Buttons
 #define BUTTON_PIN 0 // Use the BOOT button as the user button
 // I2C
-#define I2C_SCL 18
-#define I2C_SDA 8
+//#define I2C_SCL 18
+//#define I2C_SDA 8
 // UART
-#define UART_TX 43
-#define UART_RX 44
+//#define UART_TX 43
+//#define UART_RX 44
 
 // Power
 // Outputting 22dBm from SX1262 results in ~30dBm E22-900M30S output (module only uses last stage of the YP2233W PA)
@@ -138,15 +138,15 @@
 // FIXME: change behavior in src to default to not having screen if is undefined
 // FIXME: remove 0/1 option for HAS_SCREEN in src, change to being defined or not
 // FIXME: check if it actually causes a crash when not specifiying that a display isn't present
-#define HAS_SCREEN 0 // Assume no screen present by default to prevent crash...
+//#define HAS_SCREEN 0 // Assume no screen present by default to prevent crash...
 
 // GPS
 // FIXME: unsure what to define HAS_GPS as if GPS isn't always present
-#define HAS_GPS 1 // Don't need to set this to 0 to prevent a crash as it doesn't crash if GPS not found, will probe by default
-#define PIN_GPS_EN 15
-#define GPS_EN_ACTIVE 1
-#define GPS_TX_PIN 16
-#define GPS_RX_PIN 17
+//#define HAS_GPS 1 // Don't need to set this to 0 to prevent a crash as it doesn't crash if GPS not found, will probe by default
+//#define PIN_GPS_EN 15
+//#define GPS_EN_ACTIVE 1
+//#define GPS_TX_PIN 16
+//#define GPS_RX_PIN 17
 
 /////////////////////////////////////////////////////////////////////////////////
 //                                                                             //
