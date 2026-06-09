@@ -62,20 +62,20 @@
 // Option 1: E22's TXEN pin connected to E22's DIO2 pin, E22's RXEN pin connected to NEGATED output of E22's DIO2 pin (more
 // expensive option hardware-wise, is the 'most proper' way, removes need for routing one/two traces from MCU to RF switching
 // pins), however you can't have E22 in low-power 'sleep' mode (TXEN and RXEN both low cannot be achieved this this option).
-/*
+
 #define SX126X_DIO2_AS_RF_SWITCH
 #define SX126X_TXEN RADIOLIB_NC
 #define SX126X_RXEN RADIOLIB_NC
-*/
+
 
 // Option 2: E22's TXEN pin connected to E22's DIO2 pin, E22's RXEN pin connected to MCU pin (cheaper option hardware-wise,
 // removes need for routing another trace from MCU to an RF switching pin).
-// /*
+// 
+/*
 #define SX126X_DIO2_AS_RF_SWITCH
 #define SX126X_TXEN RADIOLIB_NC
 #define SX126X_RXEN 5
-// */
-
+ */
 // Option 3: E22's TXEN pin connected to MCU pin, E22's RXEN pin connected to MCU pin (cheaper option hardware-wise, allows for
 // ramping up PA before transmission (add/expand on feature yourself in RadioLib) if PA takes a while to stabilise)
 // Don't define DIO2_AS_RF_SWITCH because we only use DIO2 or an MCU pin mutually exclusively to connect to E22's TXEN (to prevent
@@ -111,8 +111,8 @@
 // Buttons
 //#define BUTTON_PIN 0 // Use the BOOT button as the user button
 // I2C
-//#define I2C_SCL 18
-//#define I2C_SDA 8
+#define I2C_SCL 2
+#define I2C_SDA 1
 // UART
 //#define UART_TX 43
 //#define UART_RX 44
@@ -191,3 +191,5 @@ being defined but having no value #if (!defined(E22_RXEN) || !(0 <= E22_RXEN && 
 // need to define, and DIO3_AS_TCXO_AT_1V8 is set so it cannot serve any extra function even if requested to (from 13.3.2.1
 // DioxMask in SX1262 datasheet: Note that if DIO2 or DIO3 are used to control the RF Switch or the TCXO, the IRQ will not be
 // generated even if it is mapped to the pins.)
+#endif
+
