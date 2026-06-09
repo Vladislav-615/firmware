@@ -36,9 +36,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 #define SX126X_CS 10    // EBYTE module's NSS pin // FIXME: rename to SX126X_SS
-#define LORA_SCK 12     // EBYTE module's SCK pin
-#define LORA_MOSI 11    // EBYTE module's MOSI pin
-#define LORA_MISO 13    // EBYTE module's MISO pin
+#define LORA_SCK 7     // EBYTE module's SCK pin
+#define LORA_MOSI 9   // EBYTE module's MOSI pin
+#define LORA_MISO 8    // EBYTE module's MISO pin
 #define SX126X_RESET 4  // EBYTE module's NRST pin
 #define SX126X_BUSY 21  // EBYTE module's BUSY pin
 #define SX126X_DIO1 14  // EBYTE module's DIO1 pin
@@ -82,8 +82,8 @@
 // a short if they are both connected at the same time (suboptimal PCB design) and there's a slight non-neglibible delay and/or
 // voltage difference between DIO2 and TXEN). Can use DIO2 as an IRQ (but not in Meshtastic at the moment).
 /*
-#define SX126X_TXEN 9
-#define SX126X_RXEN 10
+#define SX126X_TXEN 6
+#define SX126X_RXEN 5
 */
 
 // (NOT RECOMMENDED, if need to ramp up PA before transmission, better to use option 3)
@@ -95,21 +95,21 @@
 // changing DIO2's switching advance in RadioLib may not even be possible, may be baked into the SX126x).
 /*
 #define SX126X_DIO2_AS_RF_SWITCH
-#define SX126X_TXEN 9
+#define SX126X_TXEN 5
 #define SX126X_RXEN RADIOLIB_NC
 */
 
 // Status
-#define LED_POWER 1
-#define LED_STATE_ON 1 // State when LED is lit
+//#define LED_POWER 1
+//#define LED_STATE_ON 1 // State when LED is lit
 // External notification
 // FIXME: Check if EXT_NOTIFY_OUT actualy has any effect and removes the need for setting the external notication pin in the
 // app/preferences
-#define EXT_NOTIFY_OUT 2 // The GPIO pin that acts as the external notification output (here we connect an LED to it)
+//#define EXT_NOTIFY_OUT 2 // The GPIO pin that acts as the external notification output (here we connect an LED to it)
 // Buzzer
 //#define PIN_BUZZER 11
 // Buttons
-#define BUTTON_PIN 0 // Use the BOOT button as the user button
+//#define BUTTON_PIN 0 // Use the BOOT button as the user button
 // I2C
 //#define I2C_SCL 18
 //#define I2C_SDA 8
